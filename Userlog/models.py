@@ -7,8 +7,29 @@ from django.db import models
 class UserTopic(models.Model):
     #User interest
     text = models.CharField(max_length=200) #we want to display characters with max 250
-    date_uploaded = models.DateTimeField(auto_now_add=True) #allows realtime accuracy upon upload
+    date_added = models.DateTimeField(auto_now_add=True) #allows realtime accuracy upon upload
 
     #string representation of model
 def _str_(self):
     return self.text
+
+
+#entry model
+class Entry(models.Model):
+    topic = models.ForeignKey(UserTopic, on_delete=models.CASCADE,)
+    text = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+
+class Meta:
+    verbose_name_plural = 'entries'
+
+def _str_(self):
+        return self.text[:50]+"..."
+
+# ...
+on_delete=models.DO_NOTHING,
+# ...
+    
+
+
