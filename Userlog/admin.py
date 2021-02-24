@@ -3,5 +3,6 @@ from django.contrib import admin
 # Register your models here.
 
 #Register model to admin site
-from Userlog.models import UserTopic
+from .models import UserTopic, Entry
 admin.site.register(UserTopic)
+admin.site.register(Entry)
