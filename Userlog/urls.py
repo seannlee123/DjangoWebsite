@@ -18,10 +18,10 @@ from django.urls import path
 from django.conf.urls import url
 from . import views
 urlpatterns = [
-    path(r'^admin/',admin.site.urls),
+    path('admin/',admin.site.urls),
     path('',views.home),
     path('welcome/', views.welcome),
-    path('Userlog/', views.index),
+    path('Userlogs/', views.index),
     path('userpost/',views.user_list_view),
     #path('Userlog/', views.index, name='Userlog'),
 

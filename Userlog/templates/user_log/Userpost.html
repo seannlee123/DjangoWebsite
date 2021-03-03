@@ -1,4 +1,13 @@
+{% extends 'user_log/main.html' %} 
+
+{% block content %}
+
+
+<p> Dashboard </p>
+{% include 'user_log/navbar.html' %} 
+
 <h1> This is our User-Entry</h1>
+
 {% for Userlog in usertopics_objects %}
     <p> {{Userlog}} </p>
 {% endfor %}  
@@ -7,3 +16,10 @@
 {% for Userlog in entry_objects %}
     <p> {{Userlog}} </p>
 {% endfor %} 
+
+
+{% include 'user_log/navbar.html' %} 
+{% endblock content %}
+
+
+
