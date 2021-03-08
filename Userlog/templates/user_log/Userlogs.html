@@ -1,17 +1,24 @@
-{% extends 'user_log/main.html' %} 
+<html>
+{% include 'user_log/main.html' %} 
 
 {% block content %}
 
-
-<p> Dashboard </p>
-{% include 'user_log/navbar.html' %} 
-
-
-    <h> Index </h>
-    <p>Userlog</p>
-<p>user Log helps you keep track of your learning, for any topic you're
+<p> Dashboard for Topics </p>
+<p>User Log helps you keep track of your learning, 
+    for any topic you're
 learning about.</p>
 
-{% include 'user_log/navbar.html' %} 
-{% endblock content %}
+<body>
+<ul>
+    {% for topic in topics %}
+    <li> {{ topic }} </li>
+    {% empty %}
+    <li> No topics have been added yet.</li>
+    {% endfor %}
+</ul>
+   
 
+</body>
+{% include 'user_log/main.html' %} 
+{% endblock content %}
+</html>
