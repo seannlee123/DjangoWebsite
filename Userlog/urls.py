@@ -18,19 +18,16 @@ from django.urls import path, include
 from django.conf.urls import url
 from . import views
 urlpatterns = [
-    path('admin/',admin.site.urls),
-    path('', views.index, name='index'),
-    #url('#', include('Userlog.urls')),
+
+    path('nav', views.index, name='index'),
+    
+    path('', views.home),
+    path('customer/', views.customer),
     path('welcome/', views.welcome),
     path('Userlogs/', views.topic_view),
     path('userpost/',views.user_list_view),
     url('topics/$', views.topic_view, name='topics'),
-    #url('#',include('user_log.urls')),
-   
-    #path('Userlog/', views.index, name='Userlog'),
-
-
-    #path('admin/', admin.site.urls),
+  
 ]
 
 #defining out functions

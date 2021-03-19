@@ -5,7 +5,10 @@ from .models import Entry
 
 # Create your views here.
 def home(request):
-    return HttpResponse("This is home page")
+    return render(request, 'user_log/dashboard.html')
+
+def customer(request):
+    return render(request, 'user_log/customer.html')
 
 def welcome(request):
     return HttpResponse("welcome,  This is welcome")

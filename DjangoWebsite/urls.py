@@ -18,26 +18,17 @@ from django.conf.urls import url
 from Userlog.views import home, index, welcome, user_list_view, topic_view
 from django.contrib import admin
 from django.urls import path, include
-from django.urls import URLPattern
-
-
-
 
 
 urlpatterns = [
     
-    #path('',include('Userlog.urls')),
-    path('welcome/', welcome),
-    path('Userlogs/', topic_view),
-    path('',index),
+
     path('admin/',admin.site.urls),
-    path('userpost/',user_list_view),
-    url('topics/',topic_view, name = 'topics'),
-    url('#', include('Userlog.urls')),
+    path('', include('Userlog.urls')),
+
   
    
-    #path('userlog/', index),
-    #path(r'', include('Userlog.urls', namespace = 'Userlog')),
+    
    
 ]
 

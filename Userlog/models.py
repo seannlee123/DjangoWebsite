@@ -8,7 +8,7 @@ class UserTopic(models.Model):
     #User interest
     text = models.CharField(max_length=120, null = True) #we want to display characters with max 250
     date_added = models.DateTimeField(auto_now_add=True) #allows realtime accuracy upon upload
-
+    
     #string representation of model
     def __str__(self):
         return self.text
