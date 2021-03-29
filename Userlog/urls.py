@@ -22,10 +22,10 @@ urlpatterns = [
     path('nav', views.index, name='index'),
     
     path('', views.home),
-    path('customer/', views.customer),
+    path('customer/', views.customer_page),
     path('welcome/', views.welcome),
     path('Userlogs/', views.topic_view),
-    path('userpost/',views.user_list_view),
+    path('entry/',views.user_list_view),
     url('topics/$', views.topic_view, name='topics'),
   
 ]
