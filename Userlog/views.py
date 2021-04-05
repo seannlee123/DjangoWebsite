@@ -8,7 +8,13 @@ from .models import *
 
 # Create your views here.
 def home(request):
-    return render(request, 'user_log/dashboard.html')
+    usertopics_objects = UserTopic.objects.all()
+    entry_objects = Entry.objects.all()
+    context = {
+        'entry_objects': entry_objects,
+        'usertopics_objects': usertopics_objects,      
+    }
+    return render(request, 'user_log/dashboard.html', context)
 
 def customer_page(request):
     return render(request, 'user_log/customer.html')
@@ -43,6 +49,8 @@ def topic_view(request):
         'posts':posts
     }
     return render(request,'User_log/Userlogs.html',context)
+
+
 
 
 #def posts(request):
