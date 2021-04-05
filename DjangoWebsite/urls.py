@@ -27,8 +27,5 @@ urlpatterns = [
     path('', include('Userlog.urls')),
 
   
-   
-    
-   
 ]
 

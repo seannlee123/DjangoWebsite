@@ -1,4 +1,3 @@
-<html>
 {% include 'user_log/main.html' %} 
 
 {% block content %}
@@ -9,16 +8,8 @@
 learning about.</p>
 
 <body>
-<ul>
-    {% for topic in topics %}
-    <li> {{ topic }} </li>
-    {% empty %}
-    <li> No topics have been added yet.</li>
-    {% endfor %}
-</ul>
 
-<br>
-
+	<br>
 		<div class="row">
 			<div class="col-md">
 				<div class="card card-body">
@@ -27,20 +18,20 @@ learning about.</p>
 				<div class="card card-body">
 					<table class="table">
 						<tr>
-							<th>Product</th>
-							<th>Category</th>
-							<th>Price</th>
+							<th>Category</th>		
 						</tr>
-						
+
+						{% for i in topics %}
+							<tr>
+								<td>{{i.text}}</td>
+							</tr>
+						{% endfor %}	
 					</table>
 				</div>
 			</div>
 			
 		</div>
+	</br>
 
-
-
-</body>
 {% include 'user_log/main.html' %} 
 {% endblock content %}
-</html>

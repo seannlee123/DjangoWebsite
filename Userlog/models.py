@@ -41,12 +41,12 @@ class Entry(models.Model):
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
  
-class Meta:
-    verbose_name_plural = 'entries'
     def __str__(self):
-        return self.text[:50]+"..."
+        return self.text[:10]+"..."
 # ...
 on_delete=models.DO_NOTHING,
+
+
 
         
        

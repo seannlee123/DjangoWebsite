@@ -27,7 +27,7 @@ urlpatterns = [
     path('Userlogs/', views.topic_view),
     path('entry/',views.user_list_view),
     url('topics/$', views.topic_view, name='topics'),
-  
+  #create path for newtopic model
 ]
 
 #defining out functions
