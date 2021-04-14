@@ -24,8 +24,8 @@
 		<div class="card card-body">
 			<h5>Contact Information</h5>
 			<hr>
-			<p>Email: </p>
-			<p>Phone: </p>
+			<p>Email: {{customer_objects.email}} </p>
+			<p>Phone: {{customer_objects.phone}} </p>
 		</div>
 	</div>
 
@@ -58,13 +58,26 @@
 		<div class="card card-body">
 			<table class="table table-sm">
 				<tr>
-					<th>Product</th>
-					<th>Category</th>
-					<th>Date Orderd</th>
-					<th>Status</th>
-					<th>Update</th>
-					<th>Remove</th>
+					<th>Creator</th>
+					<th>Topic</th>
+					<th>Text</th>
+					<th>Date</th>
+					<td> <a class="btn btn-sm btn-info"href=""> Click Status</a></td>
+					<td> <a class="btn btn-sm btn-info"href="">Update</a></td>
+                    <td> <a class="btn btn-sm btn-danger" href="">Remove</a></td> 
 				</tr>
+				{% for entry in entry_objects %}
+                    <tr>
+                        <td>{{ entry.cust_name}}</td> 
+                        <td>{{ entry.topic}}</td> 
+						<td>{{ entry.text}}</td> 
+                        <td>{{ entry.date_added|date:'M d,Y H:i' }}</td>
+                        <td> <a class="btn btn-sm btn-info"href=""> Click Status</a></td>
+						<td> <a class="btn btn-sm btn-info"href="">Update</a></td>
+                    	<td> <a class="btn btn-sm btn-danger" href="">Remove</a></td>                
+                    </tr>                       
+                               
+                {% endfor %} 
 
 			</table>
 		</div>

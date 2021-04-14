@@ -19,13 +19,13 @@ from django.conf.urls import url
 from . import views
 urlpatterns = [
 
-    path('nav', views.index, name='index'),
+    path('nav', views.index, name='nav'),
     
-    path('', views.home),
-    path('customer/', views.customer_page),
+    path('', views.home, name = "home"),
+    path('customer/<str:pk_test>/', views.customer, name="customer"),
     path('welcome/', views.welcome),
-    path('Userlogs/', views.topic_view),
-    path('entry/',views.user_list_view),
+    path('Userlogs/', views.topic_view, name = "logs"),
+    path('entry/',views.user_list_view, name = "entry"),
     url('topics/$', views.topic_view, name='topics'),
   #create path for newtopic model
 ]

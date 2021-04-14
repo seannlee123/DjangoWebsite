@@ -16,8 +16,18 @@ def home(request):
     }
     return render(request, 'user_log/dashboard.html', context)
 
-def customer_page(request):
-    return render(request, 'user_log/customer.html')
+def customer_page(request, pk_test):
+    customer_objects = customer.objects.get(id=pk_test)
+    usertopics_objects = UserTopic.objects.all()
+   # entry_objects = customer.entry_set.all()
+    entry_objects = Entry.objects.all()
+    context = {
+        'entry_objects': entry_objects,
+        'usertopics_objects': usertopics_objects,
+        'customer_objects': customer_objects,      
+    }
+    
+    return render(request, 'user_log/customer.html', context)
 
 def welcome(request):
     return HttpResponse("welcome,  This is welcome")
