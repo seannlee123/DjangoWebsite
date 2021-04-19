@@ -18,16 +18,15 @@ def home(request):
 
 def customer_page(request, pk_test):
     customer_objects = customer.objects.get(id=pk_test)
-    usertopics_objects = UserTopic.objects.all()
-   # entry_objects = customer.entry_set.all()
-    entry_objects = Entry.objects.all()
+    entry_objects = customer_objects.entries.all()
     context = {
         'entry_objects': entry_objects,
-        'usertopics_objects': usertopics_objects,
-        'customer_objects': customer_objects,      
+        'customer_objects': customer_objects,
     }
-    
-    return render(request, 'user_log/customer.html', context)
+
+    return render(request, 'user_log/customer.html',context)
+
+
 
 def welcome(request):
     return HttpResponse("welcome,  This is welcome")
@@ -63,10 +62,6 @@ def topic_view(request):
 
 
 
-#def posts(request):
- #   posts = UserTopic.objects.all()
-  #  context = {'posts':posts}
-   # return render(request,'user_log/Userlogs.html', context)
    
 
 #create view for TopicForm

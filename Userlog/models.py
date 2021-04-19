@@ -35,7 +35,7 @@ class Tag(models.Model):
 #entry model
 
 class Entry(models.Model):
-    cust_name = models.ForeignKey(customer, null= True, on_delete=models.SET_NULL)
+    cust_name = models.ForeignKey(customer, null= True, on_delete=models.SET_NULL, related_name="entries")
     tags = models.ForeignKey(Tag, null = True, on_delete=models.CASCADE)
     topic = models.ForeignKey(UserTopic, null = True, on_delete=models.CASCADE)
     text = models.TextField()
