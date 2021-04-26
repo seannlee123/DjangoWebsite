@@ -1,4 +1,10 @@
 from Userlog.models import * 
+#commands
+customers = customer.objects.all()
+
+firstCustomer = customer.objects.first()
+
+
 
 
 

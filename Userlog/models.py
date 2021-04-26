@@ -42,9 +42,10 @@ class Entry(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
  
     def __str__(self):
-        return self.text[:10]+"..."
+        return self.topic.text[:10]+"..."
+        
 # ...
-on_delete=models.DO_NOTHING,
+on_delete=models.DO_NOTHING
 
 
 

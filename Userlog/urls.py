@@ -20,12 +20,16 @@ from . import views
 urlpatterns = [
 
     path('nav', views.index, name='nav'),
-    path('customer/<str:pk_test>/',views.customer_page),
+    path('customer/<str:pk_test>/',views.customer_page, name="customer"),
     path('', views.home, name = "home"),
     path('welcome/', views.welcome),
     path('Userlogs/', views.topic_view, name = "logs"),
     path('entry/',views.user_list_view, name = "entry"),
     url('topics/$', views.topic_view, name='topics'),
+    path('new_post/',views.createNew_post, name = "new_post"),
+    path('update_post/<str:pk>/',views.update_post, name = "update_post"),
+    path('delete_post/<str:pk>/',views.delete_post, name = "delete_post"),
+
   #create path for newtopic model
 ]
 

@@ -1,7 +1,6 @@
 from django import forms
-
-from .models import UserTopic, Entry
-
+from django.forms import ModelForm
+from .models import *
 
 #465
 #this will allow us to create a based page for
@@ -9,13 +8,13 @@ from .models import UserTopic, Entry
 class TopicForm(forms.ModelForm):
      class Meta:
         model = UserTopic
-        fields = ['text']
+        fields = '__all__'
         labels = {'text': ''}
 
 #this is for adding new entries 
 class EntryForm(forms.ModelForm):
      class Meta:
         model = Entry
-        fields = ['text']
+        fields = '__all__'
         labels = {'text': ''}
-        widgets = {'text': forms.Textarea(attrs={'cols': 80})}
+        widgets = {'text': forms.Textarea(attrs={'cols': 75})}

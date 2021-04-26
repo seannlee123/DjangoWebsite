@@ -11,7 +11,7 @@
             <h5>Blogs</h5>
             <hr>
             <div class="card card-body">
-                <a class="btn btn-primary  btn-sm btn-block" href="">Create Blog</a>
+                <a class="btn btn-primary  btn-sm btn-block" href="">Create Customer</a>
                 <table class="table table-sm">
                     <tr>
                         <th></th>
@@ -20,8 +20,7 @@
                     </tr>
                     {% for i in entry_objects %}
                     <tr>
-                        
-                        
+                        <td><a href="{% url 'customer' i.id %}">View</a></td>
                         <td>{{ i.cust_name}}</td> 
                         <td>{{ i.topic}}</td>                        
                     </tr>                       
@@ -34,7 +33,7 @@
             <h5>Recent Posts</h5>
             <hr>
             <div class="card card-body">
-                <a class="btn btn-primary  btn-sm btn-block" href="">View posts</a>
+                <a class="btn btn-primary  btn-sm btn-block" href="{% url 'new_post' %}">View Post</a>
                 <table class="table table-sm">
                     <tr>
                         <th>User</th>
@@ -48,8 +47,8 @@
                         <td>{{ entry.cust_name}}</td> 
                         <td>{{ entry.topic}}</td>  
                         <td>{{ entry.date_added|date:'M d,Y H:i' }}</td>
-                        <td> <a class="btn btn-sm btn-info"href="">Update</a></td>
-                        <td> <a class="btn btn-sm btn-danger" href="">Remove</a></td>                                     
+                        <td> <a class="btn btn-sm btn-info"href="{% url 'update_post' entry.id %}">Update</a></td>
+                        <td> <a class="btn btn-sm btn-danger" href="{% url 'delete_post' entry.id %}">Remove</a></td>                                     
                     </tr>                       
                 {% empty %}
                     <li>

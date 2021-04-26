@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .models import UserTopic
 from .models import Entry
 from .models import *
+from .forms import TopicForm, EntryForm
 
 
 
@@ -60,14 +61,56 @@ def topic_view(request):
     return render(request,'User_log/Userlogs.html',context)
 
 
+def createNew_post(request):
+    topic_form = TopicForm()
+    if request.method == "POST":
+        #print('Printing POST:',request.POST)
+         topic_form = TopicForm(request.POST)
+         if  topic_form.is_valid():
+             topic_form.save()
+             return redirect('/')
 
 
-   
+    entry_form = EntryForm()
+    if request.method == "POST":
+        #print('Printing POST:',request.POST)
+        entry_form = EntryForm(request.POST)
+        if entry_form.is_valid():
+            entry_form.save()
+            return redirect('/')
+    context ={
+        'topic_form':topic_form,
+        'entry_form':entry_form
+    }
 
-#create view for TopicForm
+    return render(request, 'user_log/new_post.html', context)
 
-from .forms import TopicForm
-#define below
+#return to 11:16 CRUD pt 10
+
+def update_post(request, pk):
+    entry = Entry.objects.get(id=pk)
+    entry_form = EntryForm(instance=entry)
+    if request.method == "POST":
+            #print('Printing POST:',request.POST)
+        entry_form = EntryForm(request.POST,instance=entry )
+        if entry_form.is_valid():
+            entry_form.save()
+            return redirect('/')
+    context ={
+        'entry_form':entry_form
+    }
+
+    return render(request, 'user_log/new_post.html', context)
+
+def delete_post(request, pk):
+    entry = Entry.objects.get(id=pk)
+    if request.method == "POST":
+        entry.delete()
+        return redirect('/')
+    context ={
+        'item':entry
+
+    }
+    return render(request, 'user_log/delete_post.html', context)
 
 
-#then crea new entry model forms
