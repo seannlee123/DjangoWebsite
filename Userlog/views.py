@@ -114,3 +114,13 @@ def delete_post(request, pk):
     return render(request, 'user_log/delete_post.html', context)
 
 
+def loginPage(request):
+    context = {
+    }
+    return render(request,'user_log/login.html',context)
+
+
+def registerPage(request):
+    context = {
+    }
+    return render(request,'user_log/register.html',context)

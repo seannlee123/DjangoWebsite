@@ -18,3 +18,4 @@ class EntryForm(forms.ModelForm):
         fields = '__all__'
         labels = {'text': ''}
         widgets = {'text': forms.Textarea(attrs={'cols': 75})}
+

@@ -29,6 +29,8 @@ urlpatterns = [
     path('new_post/',views.createNew_post, name = "new_post"),
     path('update_post/<str:pk>/',views.update_post, name = "update_post"),
     path('delete_post/<str:pk>/',views.delete_post, name = "delete_post"),
+    path('login/', views.loginPage, name = "login"),
+    path('register/', views.registerPage, name = "register"),
 
   #create path for newtopic model
 ]
